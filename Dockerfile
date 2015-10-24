@@ -28,6 +28,7 @@ VOLUME /data
 
 # Editing the HBase configuration file to use the local filesystem
 ADD conf/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
+ADD files/start-thrift.sh /usr/local/bin/start-thrift.sh
 
 
 ####################
@@ -52,7 +53,7 @@ ADD conf/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
 # Web UI shows link to regionservers using random ports (e.g.: http://hbase-master:50846/rs-status).
 # This is probably related to local mode.
 # 
-EXPOSE 16000 16010 16020 16030
+EXPOSE 9090 16000 16010 16020 16030
 
 # Starting HBase
 CMD ["hbase"]

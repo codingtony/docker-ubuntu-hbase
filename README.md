@@ -40,6 +40,15 @@ docker logs -f hbase-master
 ```
 If everything looks good in the logs (no errors), hit `CTRL + C` to detach the console from the logs.
 
+### Starting a HBase container + HBase thrift server
+```bash
+docker run -d --name hbase-master -h hbase-master -p 9090:9090 \
+       -v $HOME/data/hbase:/data \
+       gelog/hbase hbase master start-thrift.sh && \
+docker logs -f hbase-master
+```
+
+
 ### Starting an interactive HBase shell session on a client container
 ```bash
 docker run --rm -ti --name hbase-shell -h hbase-shell \
