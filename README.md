@@ -44,7 +44,7 @@ If everything looks good in the logs (no errors), hit `CTRL + C` to detach the c
 ```bash
 docker run -d --name hbase-master -h hbase-master -p 9090:9090 \
        -v $HOME/data/hbase:/data \
-       gelog/hbase hbase master start-thrift.sh && \
+       gelog/hbase start-thrift.sh && \
 docker logs -f hbase-master
 ```
 
